@@ -1,14 +1,13 @@
-# Get the GCC preinstalled image from Docker Hub
-FROM maven
+FROM maven:3.9.9-amazoncorretto-21
 
-# Copy the current folder which contains C++ source code to the Docker image under /usr/src
-COPY src /usr/src/src
+COPY src tmp/src
+COPY pom.xml /tmp/pom.xml
 
 # Specify the working directory
-WORKDIR /usr/src/
+WORKDIR /tmp
 
 # Use maven to package the jar assuming the tests passed
-RUN mvn package
+RUN mvn package -e -X
 
 # Run the program output from the previous step
-CMD ["java -jar target/lru-java-0.0.1.jar"]
+CMD ["java", "-jar", "target/lru-java-0.0.1.jar"]

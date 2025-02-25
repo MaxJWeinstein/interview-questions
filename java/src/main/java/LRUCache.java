@@ -1,4 +1,5 @@
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public class LRUCache {
@@ -9,18 +10,16 @@ public class LRUCache {
     // store references of key in cache
     private static HashSet<Integer> map;
 
-    //maximum capacity of cache
+    // maximum capacity of cache
     static int csize;
 
-    LRUCache(int n)
-    {
-        dq=new LinkedList<>();
-        map=new HashSet<>();
-        csize=n;
+    LRUCache(int n) {
+        dq = new LinkedList<>();
+        map = new HashSet<>();
+        csize = n;
     }
 
-    void refer(int x)
-    {
+    void refer(int x) {
         // not present in cache
 
         // present in cache
@@ -29,8 +28,7 @@ public class LRUCache {
     }
 
     // display contents of cache
-    private void display()
-    {
+    private void display() {
         for (Integer integer : dq) {
             System.out.print(integer + " ");
         }
@@ -38,7 +36,7 @@ public class LRUCache {
     }
 
     public static void main(String[] args) {
-        LRUCache ca=new LRUCache(4);
+        LRUCache ca = new LRUCache(4);
         ca.refer(1);
         ca.refer(2);
         ca.refer(3);

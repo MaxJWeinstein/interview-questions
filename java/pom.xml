@@ -11,7 +11,7 @@
     <properties>
         <maven.compile.version>3.8.0</maven.compile.version>
         <maven.surefire.version>2.22.0</maven.surefire.version>
-        <maven.jar.verison>3.1.2</maven.jar.verison>
+        <maven.jar.version>3.1.2</maven.jar.version>
         <junit-platform.version>5.5.0-RC2</junit-platform.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -28,14 +28,22 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compile.version}</version>
                 <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven.jar.verison}</version>
+                <version>${maven.jar.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>LRUCache</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
