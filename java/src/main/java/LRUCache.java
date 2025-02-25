@@ -6,7 +6,7 @@ public class LRUCache {
 
     // store keys of cache
     // first element is least recently used
-    LinkedList<Integer> dq;
+    Deque<Integer> dq;
 
     // store references of key in cache
     private HashSet<Integer> map;
@@ -24,14 +24,14 @@ public class LRUCache {
         Integer key = Integer.valueOf(x);
         if (map.contains(key)) {
             dq.remove(key);
-            dq.add(key);
+            dq.addFirst(key);
         } else {
             while (map.size() >= csize) {
-                Integer oldKey = dq.remove();
+                Integer oldKey = dq.removeLast();
                 map.remove(oldKey);
             }
             map.add(key);
-            dq.add(key);
+            dq.addFirst(key);
         }
     }
 
