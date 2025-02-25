@@ -5,13 +5,14 @@ import java.util.LinkedList;
 public class LRUCache {
 
     // store keys of cache
-    static Deque<Integer> dq;
+    // first element is least recently used
+    LinkedList<Integer> dq;
 
     // store references of key in cache
-    private static HashSet<Integer> map;
+    private HashSet<Integer> map;
 
     // maximum capacity of cache
-    static int csize;
+    int csize;
 
     LRUCache(int n) {
         dq = new LinkedList<>();
@@ -20,11 +21,18 @@ public class LRUCache {
     }
 
     void refer(int x) {
-        // not present in cache
-
-        // present in cache
-
-        // update reference
+        Integer key = Integer.valueOf(x);
+        if (map.contains(key)) {
+            dq.remove(key);
+            dq.add(key);
+        } else {
+            while (map.size() >= csize) {
+                Integer oldKey = dq.remove();
+                map.remove(oldKey);
+            }
+            map.add(key);
+            dq.add(key);
+        }
     }
 
     // display contents of cache
