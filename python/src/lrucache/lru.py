@@ -12,13 +12,11 @@ class LRUCache:
             while len(self.lru) >= self.capacity:
                 old_key = self.lru.pop(0)
                 self.cache.remove(old_key)
-            # Don't use the stored value
             self.cache.add(key)
+            self.lru.append(key)
         else:
-            # Possible O(n) step
             self.lru.remove(key)
-        # update reference
-        self.lru.append(key)
+            self.lru.append(key)
 
     def display(self):
         for i in self.lru:
