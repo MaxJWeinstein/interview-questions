@@ -1,6 +1,7 @@
 # IDE stuff
 .idea
 *.iml
+.vscode
 
 # build stuff
 target
