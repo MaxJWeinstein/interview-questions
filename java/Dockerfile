@@ -1,10 +1,10 @@
 FROM maven:3.9.9-amazoncorretto-21
 
-COPY src tmp/src
-COPY pom.xml /tmp/pom.xml
-
 # Specify the working directory
-WORKDIR /tmp
+WORKDIR /usr/src/lru_java
+
+COPY src src
+COPY pom.xml .
 
 # Use maven to package the jar assuming the tests passed
 RUN mvn package -e -X
