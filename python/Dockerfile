@@ -8,4 +8,4 @@ COPY src /usr/src/
 WORKDIR /usr/src/
 
 # Run the program output from the previous step
-CMD ["python","__init__.py"]
+CMD ["python3","__init__.py"]
