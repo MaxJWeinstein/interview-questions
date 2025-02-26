@@ -1,4 +1,4 @@
-FROM maven:3.9.9-amazoncorretto-21
+FROM maven
 
 # Specify the working directory
 WORKDIR /usr/src/lru_java
