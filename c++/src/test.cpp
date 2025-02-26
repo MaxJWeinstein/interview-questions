@@ -19,8 +19,9 @@ public:
     void display();
 };
 
-LRUCache::LRUCache(int n) : csize(n), dq(n), ma(n)
+LRUCache::LRUCache(int n)
 {
+    csize = n;
 }
 
 /* Refers key x with in the LRU cache */
